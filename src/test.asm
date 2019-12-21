@@ -4,7 +4,7 @@ BasicUpstart2(start)
 
 .var HVSC = "/home/methos/Music/HVSC69"
 
-.var music = LoadSid("testding.sid")
+.var music = LoadSid("../music/testding.sid")
 
 .const screen = $2000
 .const colram = $d800
