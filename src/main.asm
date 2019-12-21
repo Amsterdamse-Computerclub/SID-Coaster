@@ -2,7 +2,7 @@ BasicUpstart2(start)
 
 // sidcoaster snelle mockup
 
-.var HVSC = "/home/methos/Music/HVSC69"
+#import "zp.asm"
 
 .var music = LoadSid("../music/testding.sid")
 
@@ -70,7 +70,7 @@ start:
 	lda $d018
 	sta screen
 
-    // Update screen
+	// Update screen
 	ldx #0
 !l:
 	lda coldata, x
@@ -88,7 +88,8 @@ start:
 	sta $d018
 
 	jmp *
-    #import "logic.asm"
+
+#import "logic.asm"
 
 
 //---------------------------------------------------------

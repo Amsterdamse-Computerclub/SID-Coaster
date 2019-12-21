@@ -1,3 +1,5 @@
+#import "zp.asm"
+
 // --- Music interupt ---
 // TODO: doc string
 irq_top:
@@ -18,7 +20,7 @@ irq_top:
 
 	inc screen
 	lda #0
-	sta $d412
+	sta zp_dfl_v2ctl
 
 !l:
 
