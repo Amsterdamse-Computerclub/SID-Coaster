@@ -25,6 +25,7 @@ irq_top:
 !l:
 
 	jsr col_scroll
+	jsr target_step
 
 	pla
 	tay

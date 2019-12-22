@@ -45,3 +45,13 @@ om dit duidelijker aan te geven.
 .const zp_dfl_cutoff_hi  = zp_dfl_base + 22
 .const zp_dfl_resctl     = zp_dfl_base + 23
 .const zp_dfl_filter     = zp_dfl_base + 24
+
+
+/** Sprite zeropage constants */
+.const zp_spr_num     = $40
+.const zp_spr_pos_low = $41
+.const zp_spr_pos_up  = $42
+
+
+/** Target zeropage constants */
+.const zp_target_num = $55

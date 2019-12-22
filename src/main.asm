@@ -67,9 +67,6 @@ start:
 	asl $d019
 	cli
 
-	lda $d018
-	sta screen
-
 	// Update screen
 	ldx #0
 !l:
@@ -87,9 +84,19 @@ start:
 	lda #%10000101
 	sta $d018
 
+	jsr init_avatar
+
+	jsr target_spawn
+
 	jmp *
 
 #import "logic.asm"
+
+#import "sprite.asm"
+
+#import "avatar.asm"
+
+#import "target.asm"
 
 
 //---------------------------------------------------------
