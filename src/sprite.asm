@@ -21,7 +21,7 @@
 
 spr_enable:
     clc
-    lda #1
+    lda #%00000001
     ldx zp_spr_num
 !l:
     beq !l+
@@ -36,7 +36,7 @@ spr_enable:
 
 spr_disable:
     clc
-    lda #254
+    lda #%11111110
     ldx zp_spr_num
 !l:
     beq !l+
@@ -57,15 +57,13 @@ spr_set_pos_x:
     lda zp_spr_pos_low
     sta spr_pos_x,X
     lda zp_spr_pos_up
-    beq !l+
-    jsr spr_set_x_up
-!l:
-    rts
+    beq spr_set_x_up_0
+    jmp spr_set_x_up_1
 
-spr_set_x_up:
+spr_set_x_up_1:
     clc
+    lda #%00000001
     ldx zp_spr_num
-    lda #1
 !l:
     bne !l+
     rol
@@ -73,6 +71,21 @@ spr_set_x_up:
     jmp !l-
 !l:
     ora spr_pos_x_up
+    sta spr_pos_x_up
+    rts
+
+
+spr_set_x_up_0:
+    clc
+    lda #%11111110
+    ldx zp_spr_num
+!l:
+    bne !l+
+    rol
+    dex
+    jmp !l-
+!l:
+    and spr_pos_x_up
     sta spr_pos_x_up
     rts
 
@@ -98,7 +111,7 @@ spr_move_left:
     sta spr_pos_x,X
     bcs spr_move_left_end
     clc
-    lda #254
+    lda #%11111110
     ldx zp_spr_num
 !l:
     beq spr_move_left_store_up

@@ -41,14 +41,14 @@ target_spawn:
 
     //Set shape
     lda #spr_ptr(avatar)
-    sta spr_shape+1
+    sta spr_shape,X
 
     // Enable sprite
     jsr spr_enable
 
     // Set color
     lda #WHITE
-    sta spr_col+1
+    sta spr_col,X
     rts
 
 
